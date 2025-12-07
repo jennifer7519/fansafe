@@ -1,11 +1,19 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
-import { POST, GET } from '../route';
 import type { ListingAnalysisOutput } from '@/lib/ai/schemas';
 
-// Mock modules
+// Mock modules BEFORE imports
+vi.mock('@/lib/ai/openai', () => ({
+  openai: {},
+  isOpenAIConfigured: vi.fn(() => true),
+  MODELS: { GPT4O: 'gpt-4o', GPT4O_MINI: 'gpt-4o-mini' },
+  DEFAULT_CONFIG: { model: 'gpt-4o', temperature: 0.3, max_tokens: 2000 },
+}));
+
 vi.mock('@/lib/ai/services/analyzeListing');
 vi.mock('@/lib/db/client');
+
+import { POST, GET } from '../route';
 
 describe('POST /api/analyze/listing', () => {
   beforeEach(() => {
