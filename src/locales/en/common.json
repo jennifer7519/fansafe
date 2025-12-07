@@ -1,4 +1,93 @@
 {
+  "nav": {
+    "home": "Home",
+    "analyze": "Analyze"
+  },
+  "footer": {
+    "tagline": "AI-Powered K-pop Trading Fraud Detection",
+    "disclaimer": "FanSafe uses AI to help identify potential fraud. Always exercise caution when trading.",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "Trade K-pop Items Safely",
+      "subtitle": "AI-powered fraud detection to protect international fans from scams",
+      "cta": "Analyze Now",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "patterns": {
+        "title": "Fraud Patterns",
+        "description": "Detected by AI"
+      },
+      "languages": {
+        "title": "Languages",
+        "description": "English, Korean, Japanese"
+      },
+      "speed": {
+        "title": "Analysis Time",
+        "description": "Instant results"
+      }
+    },
+    "features": {
+      "title": "Why FanSafe?",
+      "subtitle": "Comprehensive fraud detection powered by OpenAI",
+      "ai": {
+        "title": "AI-Powered",
+        "description": "Advanced language models analyze trading posts for fraud patterns"
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Support for English, Korean, and Japanese trading posts"
+      },
+      "instant": {
+        "title": "Instant Results",
+        "description": "Get fraud analysis in seconds, not hours"
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "No account required. We don't store your personal information"
+      }
+    },
+    "cta": {
+      "title": "Ready to Trade Safely?",
+      "description": "Analyze your next K-pop trade before you commit. Stay safe!",
+      "button": "Start Free Analysis"
+    }
+  },
+  "analyze": {
+    "title": "Analyze Trading Post",
+    "subtitle": "Paste the trading post details below for AI-powered fraud detection",
+    "howItWorks": {
+      "title": "How it works",
+      "description": "Our AI analyzes the text for fraud patterns like urgent language, prepayment demands, suspicious pricing, and more. Results are instant and detailed."
+    },
+    "form": {
+      "title": "Enter Trading Post Details",
+      "url": {
+        "label": "Post URL",
+        "placeholder": "https://twitter.com/user/status/123...",
+        "hint": "Twitter/X, Instagram, or other platform URL"
+      },
+      "text": {
+        "label": "Post Text",
+        "placeholder": "포토카드 양도합니다! 급해요! 선입금만..."
+      },
+      "price": {
+        "label": "Price",
+        "placeholder": "5000"
+      },
+      "itemName": {
+        "label": "Item Name",
+        "placeholder": "BTS Jungkook Photocard"
+      },
+      "optional": "Optional",
+      "submit": "Analyze for Fraud",
+      "analyzing": "Analyzing...",
+      "newAnalysis": "Analyze Another Post"
+    },
+    "disclaimer": "This analysis is provided for informational purposes only. Always use your best judgment when trading."
+  },
   "analysis": {
     "risk": {
       "low": "Low Risk",

@@ -1,4 +1,93 @@
 {
+  "nav": {
+    "home": "ホーム",
+    "analyze": "分析"
+  },
+  "footer": {
+    "tagline": "AI搭載K-popトレーディング詐欺検出",
+    "disclaimer": "FanSafeはAIを使用して潜在的な詐欺を識別します。取引時は常に注意してください。",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "安全にK-popアイテムを取引",
+      "subtitle": "AI搭載の詐欺検出で海外ファンを詐欺から保護",
+      "cta": "今すぐ分析",
+      "learnMore": "詳細を見る"
+    },
+    "stats": {
+      "patterns": {
+        "title": "詐欺パターン",
+        "description": "AIが検出"
+      },
+      "languages": {
+        "title": "対応言語",
+        "description": "英語、韓国語、日本語"
+      },
+      "speed": {
+        "title": "分析時間",
+        "description": "即座に結果"
+      }
+    },
+    "features": {
+      "title": "なぜFanSafe？",
+      "subtitle": "OpenAI搭載の包括的な詐欺検出",
+      "ai": {
+        "title": "AI搭載",
+        "description": "高度な言語モデルが取引投稿の詐欺パターンを分析"
+      },
+      "multilingual": {
+        "title": "多言語対応",
+        "description": "英語、韓国語、日本語の取引投稿に対応"
+      },
+      "instant": {
+        "title": "即座に結果",
+        "description": "数時間ではなく数秒で詐欺分析を取得"
+      },
+      "privacy": {
+        "title": "プライバシー第一",
+        "description": "アカウント不要。個人情報は保存しません"
+      }
+    },
+    "cta": {
+      "title": "安全に取引する準備はできましたか？",
+      "description": "コミットする前に次のK-pop取引を分析してください。安全に！",
+      "button": "無料分析を開始"
+    }
+  },
+  "analyze": {
+    "title": "取引投稿を分析",
+    "subtitle": "AI搭載の詐欺検出のために以下に取引投稿の詳細を貼り付けてください",
+    "howItWorks": {
+      "title": "仕組み",
+      "description": "当社のAIは、緊急性の言語、前払い要求、疑わしい価格設定などの詐欺パターンをテキストから分析します。結果は即座に詳細に表示されます。"
+    },
+    "form": {
+      "title": "取引投稿の詳細を入力",
+      "url": {
+        "label": "投稿URL",
+        "placeholder": "https://twitter.com/user/status/123...",
+        "hint": "Twitter/X、Instagram、またはその他のプラットフォームURL"
+      },
+      "text": {
+        "label": "投稿テキスト",
+        "placeholder": "포토카드 양도합니다! 급해요! 선입금만..."
+      },
+      "price": {
+        "label": "価格",
+        "placeholder": "5000"
+      },
+      "itemName": {
+        "label": "アイテム名",
+        "placeholder": "BTS ジョングク トレカ"
+      },
+      "optional": "オプション",
+      "submit": "詐欺を分析",
+      "analyzing": "分析中...",
+      "newAnalysis": "別の投稿を分析"
+    },
+    "disclaimer": "この分析は情報提供のみを目的として提供されています。取引時は常に最善の判断を使用してください。"
+  },
   "analysis": {
     "risk": {
       "low": "低リスク",

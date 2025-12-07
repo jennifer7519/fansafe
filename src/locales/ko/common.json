@@ -1,4 +1,93 @@
 {
+  "nav": {
+    "home": "홈",
+    "analyze": "분석하기"
+  },
+  "footer": {
+    "tagline": "AI 기반 K-pop 거래 사기 탐지",
+    "disclaimer": "FanSafe는 AI를 사용하여 잠재적 사기를 식별합니다. 거래 시 항상 주의하세요.",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "안전한 K-pop 거래",
+      "subtitle": "AI 기반 사기 탐지로 해외 팬들을 사기로부터 보호합니다",
+      "cta": "지금 분석하기",
+      "learnMore": "자세히 보기"
+    },
+    "stats": {
+      "patterns": {
+        "title": "사기 패턴",
+        "description": "AI가 탐지"
+      },
+      "languages": {
+        "title": "지원 언어",
+        "description": "영어, 한국어, 일본어"
+      },
+      "speed": {
+        "title": "분석 시간",
+        "description": "즉시 결과"
+      }
+    },
+    "features": {
+      "title": "왜 FanSafe인가요?",
+      "subtitle": "OpenAI 기반 종합 사기 탐지",
+      "ai": {
+        "title": "AI 기반",
+        "description": "고급 언어 모델이 거래 글의 사기 패턴을 분석합니다"
+      },
+      "multilingual": {
+        "title": "다국어 지원",
+        "description": "영어, 한국어, 일본어 거래 글 지원"
+      },
+      "instant": {
+        "title": "즉시 결과",
+        "description": "몇 시간이 아닌 몇 초 만에 사기 분석 결과 제공"
+      },
+      "privacy": {
+        "title": "프라이버시 우선",
+        "description": "계정 불필요. 개인 정보를 저장하지 않습니다"
+      }
+    },
+    "cta": {
+      "title": "안전하게 거래할 준비가 되셨나요?",
+      "description": "거래하기 전에 K-pop 거래를 분석하세요. 안전하게 거래하세요!",
+      "button": "무료 분석 시작"
+    }
+  },
+  "analyze": {
+    "title": "거래글 분석",
+    "subtitle": "AI 기반 사기 탐지를 위해 아래에 거래글 세부 정보를 붙여넣으세요",
+    "howItWorks": {
+      "title": "작동 방식",
+      "description": "우리 AI는 긴급성 언어, 선입금 요구, 의심스러운 가격 책정 등과 같은 사기 패턴에 대한 텍스트를 분석합니다. 결과는 즉시 제공되며 자세합니다."
+    },
+    "form": {
+      "title": "거래글 세부 정보 입력",
+      "url": {
+        "label": "게시물 URL",
+        "placeholder": "https://twitter.com/user/status/123...",
+        "hint": "트위터/X, 인스타그램 또는 기타 플랫폼 URL"
+      },
+      "text": {
+        "label": "게시물 텍스트",
+        "placeholder": "포토카드 양도합니다! 급해요! 선입금만..."
+      },
+      "price": {
+        "label": "가격",
+        "placeholder": "5000"
+      },
+      "itemName": {
+        "label": "아이템 이름",
+        "placeholder": "BTS 정국 포토카드"
+      },
+      "optional": "선택사항",
+      "submit": "사기 분석하기",
+      "analyzing": "분석 중...",
+      "newAnalysis": "다른 게시물 분석"
+    },
+    "disclaimer": "이 분석은 정보 제공 목적으로만 제공됩니다. 거래 시 항상 최선의 판단을 사용하세요."
+  },
   "analysis": {
     "risk": {
       "low": "낮은 위험",
