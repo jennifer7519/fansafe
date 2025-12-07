@@ -1,65 +1,204 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 export default function Home() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: '🤖',
+      titleKey: 'home.features.ai.title',
+      descriptionKey: 'home.features.ai.description',
+    },
+    {
+      icon: '🌍',
+      titleKey: 'home.features.multilingual.title',
+      descriptionKey: 'home.features.multilingual.description',
+    },
+    {
+      icon: '⚡',
+      titleKey: 'home.features.instant.title',
+      descriptionKey: 'home.features.instant.description',
+    },
+    {
+      icon: '🔒',
+      titleKey: 'home.features.privacy.title',
+      descriptionKey: 'home.features.privacy.description',
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            {t('home.hero.title')}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-base-content/80 mb-8">
+            {t('home.hero.subtitle')}
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/analyze" className="btn btn-primary btn-lg gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              {t('home.hero.cta')}
+            </Link>
+            <a href="#features" className="btn btn-outline btn-lg">
+              {t('home.hero.learnMore')}
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-4 py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="stats stats-vertical lg:stats-horizontal shadow-xl bg-base-100 w-full"
+        >
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div className="stat-title">{t('home.stats.patterns.title')}</div>
+            <div className="stat-value text-primary">9+</div>
+            <div className="stat-desc">{t('home.stats.patterns.description')}</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                />
+              </svg>
+            </div>
+            <div className="stat-title">{t('home.stats.languages.title')}</div>
+            <div className="stat-value text-secondary">3</div>
+            <div className="stat-desc">{t('home.stats.languages.description')}</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-accent">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <div className="stat-title">{t('home.stats.speed.title')}</div>
+            <div className="stat-value text-accent">&lt;5s</div>
+            <div className="stat-desc">{t('home.stats.speed.description')}</div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="container mx-auto px-4 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4">{t('home.features.title')}</h2>
+          <p className="text-lg text-base-content/70">{t('home.features.subtitle')}</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.titleKey}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+            >
+              <div className="card-body items-center text-center">
+                <div className="text-6xl mb-4">{feature.icon}</div>
+                <h3 className="card-title">{t(feature.titleKey)}</h3>
+                <p className="text-base-content/70">{t(feature.descriptionKey)}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 py-20">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="card bg-gradient-to-br from-primary to-secondary text-primary-content shadow-2xl"
+        >
+          <div className="card-body items-center text-center py-16">
+            <h2 className="card-title text-4xl mb-4">{t('home.cta.title')}</h2>
+            <p className="text-xl mb-8 max-w-2xl">{t('home.cta.description')}</p>
+            <Link href="/analyze" className="btn btn-neutral btn-lg">
+              {t('home.cta.button')}
+            </Link>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }
