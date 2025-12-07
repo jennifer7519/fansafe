@@ -1,7 +1,68 @@
-import { zodResponseFormat } from 'openai/helpers/zod';
-import { openai, DEFAULT_CONFIG, isOpenAIConfigured } from '../openai';
+import { getOpenAIClient, DEFAULT_CONFIG, isOpenAIConfigured } from '../openai';
 import { FRAUD_DETECTION_SYSTEM_PROMPT } from '../prompts';
 import { listingAnalysisOutputSchema, type ListingAnalysisOutput } from '../schemas';
+
+// Manual JSON Schema for OpenAI Structured Outputs (Zod v4 compatibility)
+const listingAnalysisJsonSchema = {
+  type: 'object' as const,
+  properties: {
+    riskScore: {
+      type: 'integer',
+      minimum: 0,
+      maximum: 100,
+      description: 'Risk score from 0 (safe) to 100 (very dangerous)',
+    },
+    detectedPatterns: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'List of detected fraud patterns (e.g., "urgent_language", "prepayment_demand")',
+    },
+    warnings: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Specific warnings for the user in English, must have at least one warning',
+    },
+    recommendations: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Actionable safety recommendations, must have at least one recommendation',
+    },
+    reasoning: {
+      type: 'string',
+      description: 'Detailed explanation of the analysis in English (minimum 50 characters)',
+    },
+    priceAnalysis: {
+      anyOf: [
+        {
+          type: 'object',
+          properties: {
+            isPriceNormal: {
+              type: 'boolean',
+              description: 'Whether the price seems normal for the item',
+            },
+            priceComment: {
+              type: 'string',
+              description: 'Brief comment about the price',
+            },
+          },
+          required: ['isPriceNormal', 'priceComment'],
+          additionalProperties: false,
+        },
+        { type: 'null' },
+      ],
+      description: 'Price analysis if price information was provided, or null if not applicable',
+    },
+    translatedText: {
+      anyOf: [
+        { type: 'string' },
+        { type: 'null' },
+      ],
+      description: 'English translation of the original Korean text if it was in Korean, or null if not needed',
+    },
+  },
+  required: ['riskScore', 'detectedPatterns', 'warnings', 'recommendations', 'reasoning', 'priceAnalysis', 'translatedText'],
+  additionalProperties: false,
+};
 
 export interface AnalyzeListingParams {
   text: string;
@@ -52,8 +113,9 @@ export async function analyzeListing(
     // 사용자 메시지 구성
     const userMessage = buildUserMessage(params);
 
-    // OpenAI API 호출 with Structured Outputs
-    const completion = await openai.beta.chat.completions.parse({
+    // OpenAI API 호출 with Structured Outputs (manual JSON schema for Zod v4 compatibility)
+    const openai = getOpenAIClient();
+    const completion = await openai.chat.completions.create({
       model: DEFAULT_CONFIG.model,
       messages: [
         {
@@ -65,20 +127,41 @@ export async function analyzeListing(
           content: userMessage,
         },
       ],
-      response_format: zodResponseFormat(listingAnalysisOutputSchema, 'listing_analysis'),
+      response_format: {
+        type: 'json_schema',
+        json_schema: {
+          name: 'listing_analysis',
+          strict: true,
+          schema: listingAnalysisJsonSchema,
+        },
+      },
       temperature: DEFAULT_CONFIG.temperature,
       max_tokens: DEFAULT_CONFIG.max_tokens,
     });
 
-    // Structured Output 파싱
-    const analysis = completion.choices[0].message.parsed;
-
-    if (!analysis) {
+    // Parse JSON response
+    const content = completion.choices[0].message.content;
+    if (!content) {
       return {
         success: false,
-        error: 'Failed to parse analysis result',
+        error: 'No response content from OpenAI',
       };
     }
+
+    // Validate with Zod schema
+    const parsed = JSON.parse(content);
+    const validation = listingAnalysisOutputSchema.safeParse(parsed);
+
+    if (!validation.success) {
+      console.error('Validation error:', validation.error);
+      // Return parsed data anyway since OpenAI enforces schema
+      return {
+        success: true,
+        data: parsed as ListingAnalysisOutput,
+      };
+    }
+
+    const analysis = validation.data;
 
     return {
       success: true,

@@ -1,11 +1,28 @@
 import OpenAI from 'openai';
 
 /**
- * OpenAI 클라이언트 싱글톤
+ * OpenAI 클라이언트 싱글톤 (지연 초기화)
  */
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+let openaiClient: OpenAI | null = null;
+
+export function getOpenAIClient(): OpenAI {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openaiClient;
+}
+
+// 기존 코드 호환성을 위한 getter
+export const openai = {
+  get beta() {
+    return getOpenAIClient().beta;
+  },
+  get chat() {
+    return getOpenAIClient().chat;
+  },
+};
 
 /**
  * OpenAI API 사용 가능 여부 확인

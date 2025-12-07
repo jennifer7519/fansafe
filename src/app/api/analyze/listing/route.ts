@@ -40,6 +40,10 @@ import { detectPlatform, getRiskLevel } from '@/lib/validations/analyze';
  */
 export async function POST(request: NextRequest) {
   try {
+    // Debug: Check environment variable
+    console.log('OPENAI_API_KEY exists:', !!process.env.OPENAI_API_KEY);
+    console.log('OPENAI_API_KEY length:', process.env.OPENAI_API_KEY?.length || 0);
+
     // 1. Parse and validate request body
     const body = await request.json();
     const validatedData = analyzeListingRequestSchema.parse(body);
