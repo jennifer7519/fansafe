@@ -1,0 +1,53 @@
+{
+  "analysis": {
+    "risk": {
+      "low": "Low Risk",
+      "medium": "Medium Risk",
+      "high": "High Risk"
+    },
+    "trust": {
+      "low": "Low Trust",
+      "medium": "Medium Trust",
+      "high": "High Trust"
+    },
+    "warnings": "⚠️ Warnings",
+    "recommendations": "💡 Recommendations",
+    "patterns": {
+      "urgent_language": "Urgent Language",
+      "prepayment_demand": "Prepayment Demand",
+      "vague_description": "Vague Description",
+      "suspicious_price": "Suspicious Price",
+      "no_verification": "No Verification",
+      "poor_photos": "Poor Quality Photos",
+      "pressure_tactics": "Pressure Tactics",
+      "new_account": "New Account",
+      "no_payment_protection": "No Payment Protection",
+      "stock_photo": "Stock Photo",
+      "heavy_editing": "Heavy Editing",
+      "poor_quality": "Poor Quality"
+    },
+    "listing": {
+      "title": "📝 Listing Analysis",
+      "detectedPatterns": "Detected Fraud Patterns",
+      "priceAnalysis": "💰 Price Analysis",
+      "reasoning": "🤔 Detailed Analysis",
+      "translation": "🌐 English Translation"
+    },
+    "image": {
+      "title": "🖼️ Image Analysis",
+      "authentic": "✓ Authentic",
+      "notAuthentic": "⚠️ Suspicious",
+      "confidence": "Confidence Level",
+      "detectedIssues": "Detected Issues",
+      "observations": "👁️ Observations",
+      "reasoning": "🤔 Detailed Analysis"
+    },
+    "seller": {
+      "title": "👤 Seller Analysis",
+      "trustScore": "Trust Score",
+      "strengths": "✓ Strengths",
+      "concerns": "⚠️ Concerns",
+      "reasoning": "🤔 Detailed Analysis"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "analysis": {
+    "risk": {
+      "low": "低リスク",
+      "medium": "中リスク",
+      "high": "高リスク"
+    },
+    "trust": {
+      "low": "低信頼",
+      "medium": "中信頼",
+      "high": "高信頼"
+    },
+    "warnings": "⚠️ 警告",
+    "recommendations": "💡 おすすめ",
+    "patterns": {
+      "urgent_language": "緊急性の強調",
+      "prepayment_demand": "前払い要求",
+      "vague_description": "曖昧な説明",
+      "suspicious_price": "不審な価格",
+      "no_verification": "認証なし",
+      "poor_photos": "低品質写真",
+      "pressure_tactics": "圧力戦術",
+      "new_account": "新規アカウント",
+      "no_payment_protection": "決済保護なし",
+      "stock_photo": "ストック写真",
+      "heavy_editing": "過度な編集",
+      "poor_quality": "低品質"
+    },
+    "listing": {
+      "title": "📝 出品分析",
+      "detectedPatterns": "検出された詐欺パターン",
+      "priceAnalysis": "💰 価格分析",
+      "reasoning": "🤔 詳細分析",
+      "translation": "🌐 英語翻訳"
+    },
+    "image": {
+      "title": "🖼️ 画像分析",
+      "authentic": "✓ 本物",
+      "notAuthentic": "⚠️ 疑わしい",
+      "confidence": "信頼度",
+      "detectedIssues": "検出された問題",
+      "observations": "👁️ 観察内容",
+      "reasoning": "🤔 詳細分析"
+    },
+    "seller": {
+      "title": "👤 販売者分析",
+      "trustScore": "信頼スコア",
+      "strengths": "✓ 強み",
+      "concerns": "⚠️ 懸念事項",
+      "reasoning": "🤔 詳細分析"
+    }
+  }
+}

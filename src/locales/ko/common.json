@@ -1,0 +1,53 @@
+{
+  "analysis": {
+    "risk": {
+      "low": "낮은 위험",
+      "medium": "중간 위험",
+      "high": "높은 위험"
+    },
+    "trust": {
+      "low": "낮은 신뢰도",
+      "medium": "보통 신뢰도",
+      "high": "높은 신뢰도"
+    },
+    "warnings": "⚠️ 경고",
+    "recommendations": "💡 추천 사항",
+    "patterns": {
+      "urgent_language": "긴급성 강조",
+      "prepayment_demand": "선입금 요구",
+      "vague_description": "모호한 설명",
+      "suspicious_price": "의심스러운 가격",
+      "no_verification": "인증 미제공",
+      "poor_photos": "저품질 사진",
+      "pressure_tactics": "압박 전술",
+      "new_account": "신규 계정",
+      "no_payment_protection": "결제 보호 없음",
+      "stock_photo": "스톡 사진",
+      "heavy_editing": "과도한 편집",
+      "poor_quality": "낮은 품질"
+    },
+    "listing": {
+      "title": "📝 거래글 분석",
+      "detectedPatterns": "감지된 사기 패턴",
+      "priceAnalysis": "💰 가격 분석",
+      "reasoning": "🤔 상세 분석",
+      "translation": "🌐 영어 번역"
+    },
+    "image": {
+      "title": "🖼️ 이미지 분석",
+      "authentic": "✓ 진품",
+      "notAuthentic": "⚠️ 의심스러움",
+      "confidence": "신뢰도",
+      "detectedIssues": "발견된 문제",
+      "observations": "👁️ 관찰 내용",
+      "reasoning": "🤔 상세 분석"
+    },
+    "seller": {
+      "title": "👤 판매자 분석",
+      "trustScore": "신뢰 점수",
+      "strengths": "✓ 장점",
+      "concerns": "⚠️ 우려사항",
+      "reasoning": "🤔 상세 분석"
+    }
+  }
+}
