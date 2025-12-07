@@ -1,0 +1,32 @@
+import OpenAI from 'openai';
+
+/**
+ * OpenAI 클라이언트 싱글톤
+ */
+export const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+/**
+ * OpenAI API 사용 가능 여부 확인
+ */
+export function isOpenAIConfigured(): boolean {
+  return !!process.env.OPENAI_API_KEY;
+}
+
+/**
+ * OpenAI 모델 목록
+ */
+export const MODELS = {
+  GPT4O: 'gpt-4o',
+  GPT4O_MINI: 'gpt-4o-mini',
+} as const;
+
+/**
+ * 기본 OpenAI 설정
+ */
+export const DEFAULT_CONFIG = {
+  model: MODELS.GPT4O,
+  temperature: 0.3, // 일관성 있는 분석을 위해 낮은 temperature
+  max_tokens: 2000,
+} as const;
